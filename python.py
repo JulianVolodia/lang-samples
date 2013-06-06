@@ -6,6 +6,11 @@
 import os.path
 from os.path import getmtime
 
+try:
+  import huhhiya
+except ImportError:
+  mod_not_found = True
+
 if os.path.exists('/home'):
   found_home = True
 
