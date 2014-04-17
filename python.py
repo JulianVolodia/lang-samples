@@ -17,6 +17,17 @@ if os.path.exists('/home'):
 mtime = getmtime('/home')
 
 ##
+# Operators
+#
+
+# Ternary
+result = a if test else b
+
+# Lambda function - like anonymous.
+log.pingdom = lambda msg: log.info(msg, SUBSYSTEM='pingdom')
+log.pingdom('I have context')
+
+##
 # Debugging.
 #
 print 'You can print lots of things, remember to cast if using string concat operator: ' + str({'key': 'val'})
@@ -27,6 +38,14 @@ print 'You can print lots of things, remember to cast if using string concat ope
 fruits = 'apple ' + ' orange'.upper()
 fruit_len = len(fruits)
 my_fav = 'My best fruits are %s and %s' % ('apple', 'jackfruit')
+check_this = "This is another {0} of {1}".format('method', 'formatting')
+
+# Convert unicode / byte
+unicode(mystring)
+str(mystring)
+
+# Check if a string contains a substring
+if "blah" not in somestring: continue
 
 ##
 # Dictionaries.
@@ -43,6 +62,7 @@ hosts['three'] = 3
 hosts['four'] = None
 num_hosts = len(hosts)
 
+# Remove a key from a dict
 if ('one' in hosts):
   del hosts['one']
 
@@ -53,6 +73,9 @@ for host in hosts:
 
 for k, v in hosts.iteritems():
   msg = 'The key is ' + str(k) + ' and the value is ' + str(v)
+
+# Transform a dict
+x = {k: [v] for k, v in dictionary.iteritems()}
 
 ##
 # Lists (arrays). Can be changed (mutable).
