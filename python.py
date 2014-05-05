@@ -112,5 +112,15 @@ user,password = myfunc('mark', 'secret')
 args = ['steve', '12345']
 user,password = myfunc(*args)
 
+##
+# File IO
+#
+data = open('file.ext')
 
+##
+# JSON
+#
+import json
+json_data = open('ucb_sites.json')
+data = json.load(json_data)
 
