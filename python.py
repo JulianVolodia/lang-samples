@@ -124,3 +124,14 @@ import json
 json_data = open('ucb_sites.json')
 data = json.load(json_data)
 
+##
+# Return an unused socket number.
+#
+# Binds to 0, which means the kernel will allocate a free socket.
+#
+import socket
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.bind(('', 0))
+addr = s.getsockname()
+print addr[1]
+s.close()

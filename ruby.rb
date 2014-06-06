@@ -4,7 +4,7 @@
 
 # Strings
 name = "Mark"
-friend = 'Dick'
+friend = 'Harry'
 sentence = name + " is a guy"
 'shout'.upcase
 
@@ -25,6 +25,11 @@ store['color'] = 'red'
 
 store.has_key?('color') # true
 store.length # 1
+
+store.each do |key, val|
+  puts key
+  puts val
+end
 
 # Arrays
 my_array = [1, 'hello', 220]
