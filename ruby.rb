@@ -5,7 +5,8 @@
 # Strings
 name = "Mark"
 friend = 'Harry'
-sentence = name + " is a guy"
+age = 40
+sentence = name + " is a guy who has age " + age.to_s
 'shout'.upcase
 
 # Insert a variable with double quotes. Like PHP.

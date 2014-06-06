@@ -83,6 +83,8 @@ x = {k: [v] for k, v in dictionary.iteritems()}
 games = ['squash', 'soccer', 'netball']
 games.append('running')
 games_string = ' and '.join(games)
+if type([1,2]) is list:
+  print "It's a list!"
 
 ##
 # Tuples (immutable). Position has meaning.
