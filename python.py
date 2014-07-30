@@ -28,6 +28,12 @@ log.pingdom = lambda msg: log.info(msg, SUBSYSTEM='pingdom')
 log.pingdom('I have context')
 
 ##
+# Loops
+#
+while True:
+  print 'loop-de-loop'
+
+##
 # Debugging.
 #
 print 'You can print lots of things, remember to cast if using string concat operator: ' + str({'key': 'val'})
@@ -38,11 +44,17 @@ print 'You can print lots of things, remember to cast if using string concat ope
 fruits = 'apple ' + ' orange'.upper()
 fruit_len = len(fruits)
 my_fav = 'My best fruits are %s and %s' % ('apple', 'jackfruit')
-check_this = "This is another {0} of {1}".format('method', 'formatting')
+check_this = "This is another {0} of {1} used in Python 3".format('method', 'formatting')
 
 # Convert unicode / byte
 unicode(mystring)
 str(mystring)
+
+# Check what a string is - unicode or byte.
+s = u"Test"
+isinstance(s, basestring)
+isinstance(s, unicode)
+isinstance(s, str)
 
 # Check if a string contains a substring
 if "blah" not in somestring: continue
@@ -73,6 +85,12 @@ for host in hosts:
 
 for k, v in hosts.iteritems():
   msg = 'The key is ' + str(k) + ' and the value is ' + str(v)
+
+# Does a key exist in a dict?
+if key in dict:
+  print "Yes"
+
+return self.count() and any(val['id'] == key for val in dictionary.values())
 
 # Transform a dict
 x = {k: [v] for k, v in dictionary.iteritems()}
@@ -118,6 +136,12 @@ user,password = myfunc(*args)
 # File IO
 #
 data = open('file.ext')
+
+##
+# Types.
+#
+msg = 3
+type(msg)
 
 ##
 # JSON
