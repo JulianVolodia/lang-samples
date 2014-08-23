@@ -14,11 +14,28 @@ fmt.Println("Message")
 fmt.Printf("%+v", user)
 log.Println("Message")
 
+// Loops
+for i, site := range sites {
+	// i = index, site = value
+}
+for i := len(dstList) - 1; i >= 0; i-- {
+
+}
+
+// Maps
+m = make(map[string]int) // Same as map[string]int{}
+m["route"] = 66
+i := m["route"]
+n := len(m)
+delete(m, "route")
+
 // Conversions.
 ready := false
 readyString := strconv.FormatBool(ready)
 
 strconv.Itoa(43)
+
+strconv.Atoi("65")
 
 if w, ok := weirdType(7).(int); ok {
     i += w
@@ -28,9 +45,15 @@ if w, ok := weirdType(7).(int); ok {
 s := []string{b.Endpoint, b.Port, b.Host, b.BindingId, strconv.FormatBool(b.Failover), b.State}
 joined := strings.Join(s, ":")
 
+message := "We can " + variable + " concat strings"
+
 exploded := strings.Split(joined)
 
 joined := fmt.Sprintf("%s is a joined string", "This")
+
+strings.Split("a man a plan a canal panama", "a ")
+
+arr = append(arr, appendedValue)
 
 // To make a ToString method
 func (b bin) String() string {
@@ -52,7 +75,7 @@ func packagePath() string {
 	return filepath.Dir(filename)
 }
 
-// Switch
+// Switch (no automatic fallthrough, but there is a clause to force it)
 switch {
 case '0' <= c && c <= '9':
     return c - '0'
