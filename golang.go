@@ -9,6 +9,9 @@ import (
   "io/ioutil"
 )
 
+// To correctly handle imports in Go:
+// http://michaelwhatcott.com/gosublime-goimports/
+
 // Printing and logging.
 fmt.Println("Message")
 fmt.Printf("%+v", user)
