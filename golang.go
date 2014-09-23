@@ -12,6 +12,9 @@ import (
 // To correctly handle imports in Go:
 // http://michaelwhatcott.com/gosublime-goimports/
 
+// To get a backtrace, issue ABRT:
+// kill -ABRT pid
+
 // Printing and logging.
 fmt.Println("Message")
 fmt.Printf("%+v", user)
@@ -77,6 +80,9 @@ func packagePath() string {
 	_, filename, _, _ := runtime.Caller(0)
 	return filepath.Dir(filename)
 }
+
+// Getting the type with the reflect package.
+typeVar := reflect.TypeOf(variable)
 
 // Switch (no automatic fallthrough, but there is a clause to force it)
 switch {
