@@ -66,6 +66,9 @@ func (b bin) String() string {
 	return fmt.Sprintf("%b", b)
 }
 
+// Substring search
+fmt.Println(strings.Contains("seafood", "foo"))
+
 myVar := `This
 is a
 multi line string`

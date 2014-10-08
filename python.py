@@ -17,8 +17,25 @@ if os.path.exists('/home'):
 mtime = getmtime('/home')
 
 ##
+# Time conversion ISO 8601
+#
+import dateutil.parser
+from datetime import datetime
+datestring = "2014-10-07T07:11:52.158Z"
+yourdate = dateutil.parser.parse(datestring)
+
+##
+# Regular expressions
+#
+import re
+re.search('needle', 'haystack-haystack-haystack-haystack-needle-haystack')
+
+
+##
 # Operators
 #
+
+# There is no ++ or -- operator in Python. Use += or -=.
 
 # Ternary
 result = a if test else b
@@ -37,6 +54,10 @@ while True:
 # Debugging.
 #
 print 'You can print lots of things, remember to cast if using string concat operator: ' + str({'key': 'val'})
+
+# Pretty print stuff
+from pprint import pprint
+pprint(data)
 
 ##
 # Strings.
@@ -149,6 +170,12 @@ type(msg)
 import json
 json_data = open('ucb_sites.json')
 data = json.load(json_data)
+
+##
+# HTTP GET request
+#
+import urllib2
+urllib2.urlopen("http://example.com/foo/bar").read()
 
 ##
 # Return an unused socket number.
