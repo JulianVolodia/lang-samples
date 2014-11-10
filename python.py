@@ -30,6 +30,18 @@ yourdate = dateutil.parser.parse(datestring)
 import re
 re.search('needle', 'haystack-haystack-haystack-haystack-needle-haystack')
 
+##
+# Exceptions
+#
+try:
+    self.sync_code()
+  except Exception as e:
+    sys.stderr.write(json.dumps({
+      'type': e.__class__.__name__,
+      'value': str(e)
+    }))
+
+raise Exception("I know python!")
 
 ##
 # Operators
@@ -58,6 +70,7 @@ print 'You can print lots of things, remember to cast if using string concat ope
 # Pretty print stuff
 from pprint import pprint
 pprint(data)
+pprint(e, stream=sys.stderr)
 
 ##
 # Strings.

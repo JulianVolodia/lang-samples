@@ -4,6 +4,13 @@
 
 # To invoke the REPL, use `irb`
 
+# Try / except (begin / rescue)
+begin
+  require 'zip'
+rescue LoadError
+  puts "No zip"
+end
+
 # Strings
 name = "Mark"
 friend = 'Harry'
@@ -102,3 +109,10 @@ def assert_equal(expected, actual)
     puts "FAILURE!"
   end
 end
+
+def sumdiff(x, y)
+  return x+y, x-y
+end
+a,b = sumdiff(3,4)
+
+puts variable.inspect
