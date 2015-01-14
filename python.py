@@ -30,6 +30,17 @@ yourdate = dateutil.parser.parse(datestring)
 import re
 re.search('needle', 'haystack-haystack-haystack-haystack-needle-haystack')
 
+match = re.search('^(\+|\-)Subproject commit [A-Fa-f0-9]{40}$', diff.patch, flags=re.MULTILINE)
+  if match:
+      print match.group(0)
+
+##
+# Time and Sleep
+#
+
+import time
+time.sleep(seconds)
+
 ##
 # Exceptions
 #
@@ -44,6 +55,12 @@ try:
 raise Exception("I know python!")
 
 ##
+# Subprocess, making shell calls / commands
+# @see: http://stackoverflow.com/questions/89228/calling-an-external-command-in-python
+#
+subprocess.check_call("cd /etc/systemd/system && systemctl restart")
+
+##
 # Operators
 #
 
@@ -55,6 +72,10 @@ result = a if test else b
 # Lambda function - like anonymous.
 log.pingdom = lambda msg: log.info(msg, SUBSYSTEM='pingdom')
 log.pingdom('I have context')
+
+# No && operator in Python.
+if a == 4 and b == 5:
+  print 'match'
 
 ##
 # Loops
@@ -72,8 +93,13 @@ from pprint import pprint
 pprint(data)
 pprint(e, stream=sys.stderr)
 
+from pprint import pprint
+pprint (vars(your_object))
+
 ##
-# Strings.
+# Strings. Single and double quotes are basically interchangeable and are convenient
+# when you don't want to escape, e.g. 'I want to "quote" stuff'. Other than that no
+# difference.
 #
 fruits = 'apple ' + ' orange'.upper()
 fruit_len = len(fruits)
