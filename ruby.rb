@@ -4,6 +4,10 @@
 
 # To invoke the REPL, use `irb`
 
+# This is the Ruby `cat` command, use to read from stdin:
+
+puts ARGF.read
+
 # Try / except (begin / rescue)
 begin
   require 'zip'

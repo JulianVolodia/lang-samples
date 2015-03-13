@@ -15,10 +15,14 @@ import (
 // To get a backtrace, issue ABRT:
 // kill -ABRT pid
 
-// Printing and logging.
+// Printing and logging, debugging.
 fmt.Println("Message")
 fmt.Printf("%+v", user)
 log.Println("Message")
+
+// Make it JSON
+b, _ := json.MarshalIndent(res, " ", "  ")
+fmt.Printf("%s", b)
 
 // Loops
 for i, site := range sites {
@@ -59,7 +63,11 @@ joined := fmt.Sprintf("%s is a joined string", "This")
 
 strings.Split("a man a plan a canal panama", "a ")
 
-arr = append(arr, appendedValue)
+// Append a value to a slice
+arr := append(arr, appendedValue)
+
+// Concat two slices
+result := append(slice1, slice2...)
 
 // To make a ToString method
 func (b bin) String() string {

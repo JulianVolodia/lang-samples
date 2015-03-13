@@ -96,6 +96,19 @@ pprint(e, stream=sys.stderr)
 from pprint import pprint
 pprint (vars(your_object))
 
+dir(your_object)
+
+# For debugging. Use it to print out OrderedDicts
+def jdump(obj):
+    print json.dumps(obj,indent=4)
+
+# Check if a list, dict, OrderedDict is empty. Don't use len(od)
+if od:
+if not od:
+
+# Works nicely for ygg objects.
+vars(obj)
+
 ##
 # Strings. Single and double quotes are basically interchangeable and are convenient
 # when you don't want to escape, e.g. 'I want to "quote" stuff'. Other than that no
@@ -105,6 +118,13 @@ fruits = 'apple ' + ' orange'.upper()
 fruit_len = len(fruits)
 my_fav = 'My best fruits are %s and %s' % ('apple', 'jackfruit')
 check_this = "This is another {0} of {1} used in Python 3".format('method', 'formatting')
+
+# If you need to include a brace character in the literal text, it can be escaped by doubling: {{ and }}.
+# Don't use \{ \} that doesn't work.
+check_this = "This is {{another}} {0} of {1} used in Python 3".format('method', 'formatting')
+
+# Split / explode strings
+pieces = "this is a string".split(' ')
 
 # Convert unicode / byte
 unicode(mystring)
@@ -119,10 +139,17 @@ isinstance(s, str)
 # Check if a string contains a substring
 if "blah" not in somestring: continue
 
+# Trim / strip chars from string
+text = "hello"
+text.rstrip('o')
+text.lstrip('h')
+
+path = "/users/"
+path.strip("\/")
+
 ##
 # Dictionaries.
 #
-# The many ways to create a dictionary.
 hosts = dict(one=1, two=2)
 hosts = dict({'one': 1, 'two': 2})
 hosts = dict(zip(('one', 'two'), (1, 2)))
@@ -133,6 +160,15 @@ hosts = {'one': 1, 'two': 2}
 hosts['three'] = 3
 hosts['four'] = None
 num_hosts = len(hosts)
+
+# When getting a value, prefer .get() as it will check for existence of the key
+hosts.get('three')
+hosts.get('doesnotexist') # returns None
+
+# Does a key exist in a dict?
+if key in dict:
+  print 'Yes'
+return self.count() and any(val['id'] == key for val in dictionary.values())
 
 # Remove a key from a dict
 if ('one' in hosts):
@@ -146,14 +182,13 @@ for host in hosts:
 for k, v in hosts.iteritems():
   msg = 'The key is ' + str(k) + ' and the value is ' + str(v)
 
-# Does a key exist in a dict?
-if key in dict:
-  print "Yes"
-
-return self.count() and any(val['id'] == key for val in dictionary.values())
-
-# Transform a dict
-x = {k: [v] for k, v in dictionary.iteritems()}
+# Comprehension of a dict, transform a dict
+mydict = {}
+mydict['one'] = {'type':'red','env':'dev'}
+mydict['two'] = {'type':'red','env':'live'}
+# mydict = {'two': {'type': 'red', 'env': 'live'}, 'one': {'type': 'red', 'env': 'dev'}}
+x = {k: [v] for k, v in dictionary.iteritems() if v['env'] == 'dev'}
+# x = {'one': [{'type': 'red', 'env': 'dev'}]}
 
 ##
 # Lists (arrays). Can be changed (mutable).
@@ -163,6 +198,12 @@ games.append('running')
 games_string = ' and '.join(games)
 if type([1,2]) is list:
   print "It's a list!"
+
+# Concatenating lists is easy
+othergames = ['rugby']
+games = games + othergames
+
+sorted_games = sorted(games)
 
 ##
 # Tuples (immutable). Position has meaning.
@@ -227,3 +268,9 @@ s.bind(('', 0))
 addr = s.getsockname()
 print addr[1]
 s.close()
+
+##
+# Casting
+#
+a = '3'
+b = int(a) + 2
